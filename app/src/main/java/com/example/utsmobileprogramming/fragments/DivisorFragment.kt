@@ -15,16 +15,16 @@ import com.example.utsmobileprogramming.utility.Utils
 
 
 class DivisorFragment : Fragment() {
-    lateinit var buttons : Array<Button>
-    lateinit var views : View
-    lateinit var fragmentTransaction : FragmentTransaction
-    var pembagi = 0
-    var arrayOption = arrayListOf<Int>()
-    var firstButtonPressed = false
-    var right = 0
-    var totalSkor = 0
-    var soal = 0
-    var utils = Utils()
+    private lateinit var buttons : Array<Button>
+    private lateinit var views : View
+    private lateinit var fragmentTransaction : FragmentTransaction
+    private var pembagi = 0
+    private var arrayOption = arrayListOf<Int>()
+    private var firstButtonPressed = false
+    private var right = 0
+    private var totalSkor = 0
+    private var soal = 0
+    private var utils = Utils()
 
     override fun onDestroyView() {
         super.onDestroyView()

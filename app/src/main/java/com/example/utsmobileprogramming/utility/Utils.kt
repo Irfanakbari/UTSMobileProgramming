@@ -8,8 +8,8 @@ import com.example.utsmobileprogramming.R
 import com.example.utsmobileprogramming.fragments.SkorFragment
 
 class Utils {
-    lateinit var timer: CountDownTimer
-    lateinit var delay : CountDownTimer
+    private lateinit var timer: CountDownTimer
+    private lateinit var delay : CountDownTimer
 
     fun timerHandler(progressBar: ProgressBar,milis: Long ,restartFunction: () -> Unit) {
         timer = object : CountDownTimer(milis, 1000)

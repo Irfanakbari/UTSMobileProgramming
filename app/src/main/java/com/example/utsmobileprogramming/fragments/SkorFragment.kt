@@ -14,8 +14,8 @@ class SkorFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var skor: Int? = null
     private var thisFragment: String? = null
-    lateinit var views : View
-    lateinit var buttons : Array<Button>
+    private lateinit var views : View
+    private lateinit var buttons : Array<Button>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +41,7 @@ class SkorFragment : Fragment() {
             button.setOnClickListener {
                 when (button.id){
                     R.id.retry -> {
-                        val fragmentTransaction = getActivity()?.supportFragmentManager?.beginTransaction()
+                        val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
                         fragmentTransaction?.replace(
                             R.id.gameContainer,
                             when (thisFragment){

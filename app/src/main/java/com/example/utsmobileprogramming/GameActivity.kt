@@ -25,8 +25,7 @@ class GameActivity : AppCompatActivity() {
         window.statusBarColor = this.resources.getColor(R.color.red)
 
 //        Get Intent
-        val gameType = intent.getStringExtra("game")
-        when (gameType) {
+        when (intent.getStringExtra("game")) {
             "divisor" -> {
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.gameContainer, DivisorFragment())

@@ -1,30 +1,38 @@
 package com.example.utsmobileprogramming
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+
 
 class MainActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false
+    private var auth = FirebaseAuth.getInstance().currentUser
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 //        Hide Status Bar
-        supportActionBar?.hide()
-        val window = this.window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        val actionBar: ActionBar? = supportActionBar
+        actionBar?.hide()
         window.statusBarColor = this.resources.getColor(R.color.red)
+
+
         val divisorButton = findViewById<Button>(R.id.divisor)
         val operationMathButton = findViewById<Button>(R.id.operationMath)
         val callItEvenButton = findViewById<Button>(R.id.callItEven)
+        val credit = findViewById<Button>(R.id.credit)
+
+        credit.text = auth?.displayName.toString()
+
 
 //        Button Click Listener
         val intent = Intent(this, GameActivity::class.java)
@@ -39,6 +47,19 @@ class MainActivity : AppCompatActivity() {
         callItEvenButton.setOnClickListener {
             intent.putExtra("game", "callItEven")
             startActivity(intent)
+        }
+        credit.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            recreate()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (auth == null){
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
