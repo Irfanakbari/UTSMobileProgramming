@@ -37,12 +37,12 @@ class Utils {
         delay.cancel()
     }
 
-    fun checkSoalNumber(soal:Int,fragmentTransaction: FragmentTransaction, totalSkor:Int) {
+    fun checkSoalNumber(soal: Int, fragmentTransaction: FragmentTransaction, totalSkor: Int, typeGame: String) {
         if (soal>=10){
             val bundle = Bundle()
             val skorFragment = SkorFragment()
             bundle.putInt("skor", totalSkor)
-            bundle.putString("thisFragment", "cie")
+            bundle.putString("thisFragment", typeGame)
             skorFragment.arguments = bundle
             fragmentTransaction.replace(R.id.gameContainer, skorFragment)
             fragmentTransaction.commit()

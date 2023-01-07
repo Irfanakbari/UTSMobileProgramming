@@ -91,7 +91,7 @@ class CallItEvenFragment : Fragment() {
     }
 
     private fun startGame(){
-        utils.checkSoalNumber(soal,  fragmentTransaction, totalSkor)
+        utils.checkSoalNumber(soal, fragmentTransaction, totalSkor,"cie")
         for (button in buttons) {
             button.isEnabled = false
         }

@@ -94,6 +94,7 @@ class OperationMathFragment : Fragment() {
     }
 
     private fun startGame() {
+        utils.checkSoalNumber(soal, fragmentTransaction, totalSkor,"operationMath")
         utils.delay(1500) {
             views.findViewById<TextView>(R.id.skorCIE).setBackgroundColor(Color.parseColor("#CACFEE"))
         }

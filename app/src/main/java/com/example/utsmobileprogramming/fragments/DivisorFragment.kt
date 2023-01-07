@@ -92,7 +92,7 @@ class DivisorFragment : Fragment() {
     }
 
     private fun startGame(){
-        utils.checkSoalNumber(soal,  fragmentTransaction, totalSkor)
+        utils.checkSoalNumber(soal,  fragmentTransaction, totalSkor, "Divisor")
         utils.delay(1500) {
             views.findViewById<TextView>(R.id.skorCIE).setBackgroundColor(Color.parseColor("#FFCCDC"))
         }

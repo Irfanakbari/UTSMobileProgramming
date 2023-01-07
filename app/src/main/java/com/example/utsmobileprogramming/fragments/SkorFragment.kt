@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.example.utsmobileprogramming.R
+import com.example.utsmobileprogramming.utility.FirebaseService
 
 
 class SkorFragment : Fragment() {
@@ -19,10 +20,12 @@ class SkorFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val skorDB = FirebaseService()
         arguments?.let {
             skor = it.getInt("skor")
             thisFragment = it.getString("thisFragment")
         }
+        skorDB.saveSkor(skor,thisFragment)
     }
 
     override fun onCreateView(
@@ -45,7 +48,7 @@ class SkorFragment : Fragment() {
                         fragmentTransaction?.replace(
                             R.id.gameContainer,
                             when (thisFragment){
-                                "divisor" -> DivisorFragment()
+                                "Divisor" -> DivisorFragment()
                                 "operationMath" -> OperationMathFragment()
                                 "cie" -> CallItEvenFragment()
                                 else -> DivisorFragment()
