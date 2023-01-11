@@ -34,9 +34,10 @@ class SkorFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         views = inflater.inflate(R.layout.fragment_skor, container, false)
-        views.findViewById<TextView>(R.id.skorAkhir).text = "$skor"
+        views.findViewById<TextView>(R.id.userLogin).text = "$skor"
         buttons = arrayOf(
             views.findViewById(R.id.retry),
+            views.findViewById(R.id.skorboard),
             views.findViewById(R.id.pilihGame),
             views.findViewById(R.id.exit)
         )
@@ -54,6 +55,14 @@ class SkorFragment : Fragment() {
                                 else -> DivisorFragment()
                             }
                             )
+                        fragmentTransaction?.commit()
+                    }
+                    R.id.skorboard -> {
+                        val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
+                        fragmentTransaction?.replace(
+                            R.id.gameContainer,
+                            LeaderBoardFragment()
+                        )
                         fragmentTransaction?.commit()
                     }
                     R.id.pilihGame -> {

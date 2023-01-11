@@ -3,13 +3,15 @@ package com.example.utsmobileprogramming
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import com.example.utsmobileprogramming.utility.FirebaseService
 import com.google.firebase.auth.FirebaseAuth
 import kotlin.random.Random
 
 
-class MainActivity : BaseActivity() {
+class HomeActivity : BaseActivity() {
     private var auth = FirebaseAuth.getInstance().currentUser
+    var username = auth?.displayName.toString().split(" ")[0]
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,8 +21,9 @@ class MainActivity : BaseActivity() {
         val operationMathButton = findViewById<Button>(R.id.operationMath)
         val callItEvenButton = findViewById<Button>(R.id.callItEven)
         val credit = findViewById<Button>(R.id.credit)
+        val usernameText = findViewById<TextView>(R.id.userLogin)
 
-        credit.text = auth?.displayName.toString()
+        usernameText.text = username
 
 
         // Button Click Listener
@@ -38,11 +41,11 @@ class MainActivity : BaseActivity() {
             startActivity(intent)
         }
         credit.setOnClickListener {
-//            FirebaseAuth.getInstance().signOut()
-//            recreate()
-            val r = Random.nextInt(1,100)
-            val skorDB = FirebaseService()
-            skorDB.saveSkor(r,"Divisor")
+            FirebaseAuth.getInstance().signOut()
+            recreate()
+//            val r = Random.nextInt(1,100)
+//            val skorDB = FirebaseService()
+//            skorDB.saveSkor(r,"Divisor")
 
             // To show the dialog fragment
 //            val fragment = UsernameModal()

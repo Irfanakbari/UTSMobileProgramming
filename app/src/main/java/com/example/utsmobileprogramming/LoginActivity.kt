@@ -35,7 +35,7 @@ class LoginActivity : BaseActivity()  {
         // User is already signed in, proceed to the main activity
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
     }
@@ -59,7 +59,7 @@ class LoginActivity : BaseActivity()  {
         if (result.resultCode == RESULT_OK) {
             // Successfully signed in
             // Pindah ke MainActivity
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,HomeActivity::class.java)
             startActivity(intent)
             finish()
         } else {
