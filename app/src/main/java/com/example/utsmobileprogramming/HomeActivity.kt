@@ -6,12 +6,14 @@ import android.widget.Button
 import android.widget.TextView
 import com.example.utsmobileprogramming.utility.FirebaseService
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlin.random.Random
 
 
 class HomeActivity : BaseActivity() {
     private var auth = FirebaseAuth.getInstance().currentUser
-    var username = auth?.displayName.toString().split(" ")[0]
+    private var username = auth?.displayName.toString().split(" ")[0]
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,11 +43,11 @@ class HomeActivity : BaseActivity() {
             startActivity(intent)
         }
         credit.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            recreate()
-//            val r = Random.nextInt(1,100)
-//            val skorDB = FirebaseService()
-//            skorDB.saveSkor(r,"Divisor")
+//            FirebaseAuth.getInstance().signOut()
+//            recreate()
+            val r = Random.nextInt(1,100)
+            FirebaseService.saveSkor(r,"Divisor")
+
 
             // To show the dialog fragment
 //            val fragment = UsernameModal()

@@ -20,12 +20,11 @@ class SkorFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val skorDB = FirebaseService()
         arguments?.let {
             skor = it.getInt("skor")
             thisFragment = it.getString("thisFragment")
         }
-        skorDB.saveSkor(skor,thisFragment)
+        FirebaseService.saveSkor(skor,thisFragment)
     }
 
     override fun onCreateView(
