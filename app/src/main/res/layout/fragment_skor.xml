@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_med"
-                android:id="@+id/skorAkhir"
+                android:id="@+id/userLogin"
                 android:gravity="center"
                 android:textSize="48sp"
                 android:textColor="#FFFFFF"/>
@@ -41,14 +41,28 @@
                 android:layout_height="82dp"/>
 
         <Button
-                android:text="Main Lagi"
-                android:layout_width="256dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/retry"
-                android:backgroundTint="#FFE0E0"
-                android:fontFamily="@font/poppins_med"
-                android:textColor="#000000"
-                tools:ignore="DuplicateSpeakableTextCheck"/>
+            android:id="@+id/retry"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFE0E0"
+            android:fontFamily="@font/poppins_med"
+            android:text="Main Lagi"
+            android:textColor="#000000"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <Button
+            android:id="@+id/skorboard"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFE0E0"
+            android:fontFamily="@font/poppins_med"
+            android:text="PAPAN SKOR"
+            android:textColor="#000000"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
         <Space
                 android:layout_width="match_parent"

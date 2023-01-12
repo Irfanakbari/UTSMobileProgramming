@@ -8,8 +8,8 @@ import com.example.utsmobileprogramming.R
 import com.example.utsmobileprogramming.fragments.SkorFragment
 
 class Utils {
-    lateinit var timer: CountDownTimer
-    lateinit var delay : CountDownTimer
+    private lateinit var timer: CountDownTimer
+    private lateinit var delay : CountDownTimer
 
     fun timerHandler(progressBar: ProgressBar,milis: Long ,restartFunction: () -> Unit) {
         timer = object : CountDownTimer(milis, 1000)
@@ -37,12 +37,12 @@ class Utils {
         delay.cancel()
     }
 
-    fun checkSoalNumber(soal:Int,fragmentTransaction: FragmentTransaction, totalSkor:Int) {
+    fun checkSoalNumber(soal: Int, fragmentTransaction: FragmentTransaction, totalSkor: Int, typeGame: String) {
         if (soal>=10){
             val bundle = Bundle()
             val skorFragment = SkorFragment()
             bundle.putInt("skor", totalSkor)
-            bundle.putString("thisFragment", "cie")
+            bundle.putString("thisFragment", typeGame)
             skorFragment.arguments = bundle
             fragmentTransaction.replace(R.id.gameContainer, skorFragment)
             fragmentTransaction.commit()

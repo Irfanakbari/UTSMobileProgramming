@@ -15,15 +15,15 @@ import com.example.utsmobileprogramming.utility.Utils
 
 
 class OperationMathFragment : Fragment() {
-    lateinit var buttons : Array<Button>
-    lateinit var views : View
-    lateinit var fragmentTransaction : FragmentTransaction
-    var penjumlahan = arrayListOf<Int>()
-    var pengurangan = arrayListOf<Int>()
-    var hasil = arrayListOf<Int>()
-    var soal = 0
-    var totalSkor = 0
-    var utils = Utils()
+    private lateinit var buttons : Array<Button>
+    private lateinit var views : View
+    private lateinit var fragmentTransaction : FragmentTransaction
+    private var penjumlahan = arrayListOf<Int>()
+    private var pengurangan = arrayListOf<Int>()
+    private var hasil = arrayListOf<Int>()
+    private var soal = 0
+    private var totalSkor = 0
+    private var utils = Utils()
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -94,6 +94,7 @@ class OperationMathFragment : Fragment() {
     }
 
     private fun startGame() {
+        utils.checkSoalNumber(soal, fragmentTransaction, totalSkor,"operationMath")
         utils.delay(1500) {
             views.findViewById<TextView>(R.id.skorCIE).setBackgroundColor(Color.parseColor("#CACFEE"))
         }

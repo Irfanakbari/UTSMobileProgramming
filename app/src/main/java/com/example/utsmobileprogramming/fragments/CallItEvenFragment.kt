@@ -14,14 +14,14 @@ import com.example.utsmobileprogramming.R
 import com.example.utsmobileprogramming.utility.Utils
 
 class CallItEvenFragment : Fragment() {
-    lateinit var buttons : Array<Button>
-    lateinit var views : View
-    lateinit var fragmentTransaction: FragmentTransaction
-    var arrayOptions = arrayListOf<Int>()
+    private lateinit var buttons : Array<Button>
+    private lateinit var views : View
+    private lateinit var fragmentTransaction: FragmentTransaction
+    private var arrayOptions = arrayListOf<Int>()
     var skor = 0
-    var soal = 0
-    var totalSkor = 0
-    var utils = Utils()
+    private var soal = 0
+    private var totalSkor = 0
+    private var utils = Utils()
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -91,7 +91,7 @@ class CallItEvenFragment : Fragment() {
     }
 
     private fun startGame(){
-        utils.checkSoalNumber(soal,  fragmentTransaction, totalSkor)
+        utils.checkSoalNumber(soal, fragmentTransaction, totalSkor,"cie")
         for (button in buttons) {
             button.isEnabled = false
         }

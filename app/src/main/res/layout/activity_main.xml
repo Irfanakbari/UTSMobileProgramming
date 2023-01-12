@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
+        tools:context=".HomeActivity"
         android:background="@drawable/bg">
 
     <LinearLayout
@@ -20,21 +20,21 @@
                 android:layout_height="wrap_content">
 
             <TextView
-                    android:text="Kuis Matematika"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_reg"
-                    android:id="@+id/textView2"
-                    android:gravity="center"
-                    android:textSize="22sp"
-                    android:textColor="#FFFFFF"/>
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_reg"
+                android:gravity="center"
+                android:text="@string/selamat_datang"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp" />
 
             <TextView
-                    android:text="ELROND"
+                    android:text="@string/title_game"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_med"
-                    android:id="@+id/skorAkhir"
+                    android:id="@+id/userLogin"
                     android:gravity="center"
                     android:textSize="48sp"
                     android:textColor="#FFFFFF"/>
@@ -85,13 +85,13 @@
                 android:layout_height="16dp"/>
 
         <Button
-                android:text="CREDIT"
-                android:layout_width="171dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/credit"
-                android:backgroundTint="#FFE0E0"
-                android:fontFamily="@font/poppins_med"
-                android:textColor="#000000"/>
+            android:id="@+id/credit"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFE0E0"
+            android:fontFamily="@font/poppins_med"
+            android:text="KELUAR"
+            android:textColor="#000000" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
